@@ -88,3 +88,5 @@ names(dataset3) <- names
 # The variable names are change by adding "mean" to indicate that the data is mean data.
 datamean <- dataset3 %>% group_by(subject, activity) %>% summarise_all(mean)
 names(datamean) <- gsub("$", "-mean", names(datamean))
+
+write.table(datamean, "mydata.txt", sep="\t")
