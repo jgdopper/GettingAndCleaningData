@@ -85,8 +85,16 @@ names(dataset3) <- names
 
 # Step 5.
 # Creates a independent tidy dataset "datamean" with the average of each variable for each activity and each subject
-# The variable names are change by adding "mean" to indicate that the data is mean data.
+# The variable names are change by adding "mean" to indicate that the data is mean data, except for the first 
+# two variables.
 datamean <- dataset3 %>% group_by(subject, activity) %>% summarise_all(mean)
 names(datamean) <- gsub("$", "-mean", names(datamean))
+<<<<<<< HEAD
+names(datamean)[1] <- "subject"
+names(datamean)[2] <- "activity"
 
+# Writes datamean into a mydata.txt
+=======
+
+>>>>>>> 4f1a9c40347c1647be72801b8e78e51b3db3b9a3
 write.table(datamean, "mydata.txt", sep="\t")
